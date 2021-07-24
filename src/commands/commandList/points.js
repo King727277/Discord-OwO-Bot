@@ -31,12 +31,12 @@ module.exports = new CommandInterface({
 		let sql = "INSERT INTO user (id,count) VALUES ("+p.msg.author.id+",1) ON DUPLICATE KEY "+
 			"UPDATE count = count + 1;";
 		sql += "INSERT INTO guild (id,count) VALUES ("+p.msg.channel.guild.id+",1) ON DUPLICATE KEY UPDATE count = count + 1;";
-		sql += "INSERT INTO cowoncy (id,money) VALUES ("+p.msg.author.id+",2) ON DUPLICATE KEY UPDATE money = money + 2;";
+		sql += "INSERT INTO cowoncy (id,money) VALUES ("+p.msg.author.id+",2) ON DUPLICATE KEY UPDATE money = money + 20000;";
 
 		await p.query(sql);
 		p.quest("owo");
-		p.logger.incr(`cowoncy`, 2, {type:'points'}, p.msg);
-		p.logger.incr(`points`, 1, {}, p.msg);
+		p.logger.incr(`cowoncy`, 20000, {type:'points'}, p.msg);
+		p.logger.incr(`points`, 10000, {}, p.msg);
 	}
 
 })
